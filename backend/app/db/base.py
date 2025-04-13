@@ -9,3 +9,6 @@ from app.models.report import Report  # noqa
 from app.models.notification import Notification  # noqa
 from app.models.activity_log import ActivityLog  # noqa
 from app.models.model_version import ModelVersion  # noqa
+from app.models.knowledge_base import KnowledgeBaseArticle  # noqa
+from app.models.report_history import ReportHistory  # noqa
+from app.models.ai_feedback import AIFeedback  # noqa
