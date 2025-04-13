@@ -120,19 +120,21 @@ const PatientManagement = () => {
               <Pagination className="mt-4">
                 <PaginationContent>
                   <PaginationItem>
-                    <PaginationPrevious 
-                      onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))}
-                      disabled={currentPage === 1}
-                    />
+                    {currentPage === 1 ? (
+                      <PaginationPrevious aria-disabled="true" className="pointer-events-none opacity-50" />
+                    ) : (
+                      <PaginationPrevious onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))} />
+                    )}
                   </PaginationItem>
                   <PaginationItem>
                     <PaginationLink isActive>{currentPage}</PaginationLink>
                   </PaginationItem>
                   <PaginationItem>
-                    <PaginationNext 
-                      onClick={() => setCurrentPage(prev => prev + 1)}
-                      disabled={patients?.length < 10}
-                    />
+                    {patients && patients.length < 10 ? (
+                      <PaginationNext aria-disabled="true" className="pointer-events-none opacity-50" />
+                    ) : (
+                      <PaginationNext onClick={() => setCurrentPage(prev => prev + 1)} />
+                    )}
                   </PaginationItem>
                 </PaginationContent>
               </Pagination>
